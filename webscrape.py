@@ -20,19 +20,19 @@ if os.path.isdir('images/dog') is False:
     os.makedirs('images/pig')
     os.makedirs('images/deer')
     os.makedirs('images/frog')
-an_face = {'강아지상':["박보검","송중기","손예진","한효주","수지","아이유"],\
-            '고양이상':["한예슬","현아","노제","레오","예지","이효리","제니","조인성","청하","하니","한소희","김희철","고아라","이나영","크리스탈"],\
+an_face = {'강아지상':["박보검","강다니엘","백현","이종석","손예진","한효주","수지","아이유"],\
+            '고양이상':["한예슬","현아","예지","조인성","하니","한소희","고아라","크리스탈"],\
             '토끼상':["나연","려육","아이린","유나","이나은","정국","지수","한지민","도영","에스파윈터","태민"],\
-            '말상':["강타","김기수","보아","이문세","제시카","제이홉","태연","이광수","소지섭","이병헌"],\
-            '여우상':["서인국","가인","문빈","경리","유노윤호","유인나","육성재","이준기","쯔위","채령","샤이니키"],\
-            '다람쥐상':["로제","김성경","사나","승희","웬디","이민혁","조보아","토니안"],\
-            "곰상":["마동석","김태우","셔누","슬기","정준하","조진웅"],\
-            "늑대상":["세훈","뷔","설현","슈화","황인엽"],\
+            '말상':["강타","김기수","보아","제이홉","태연","이광수","소지섭","이병헌"],\
+            '여우상':["서인국","가인","경리","유인나","육성재","쯔위","채령","샤이니키"],\
+            '다람쥐상':["김성경","사나","문별","조보아","강미나","로꼬","레이나"],\
+            "곰상":["마동석","셔누","슬기","스윙스","김윤석"],\
+            "늑대상":["세훈","뷔","황인엽","김영대","서강준","구준회"],\
             "원숭이상":["박진영","빈지노","양세형","코드쿤스트","지드래곤"],\
-            "거북이상":["샤이니민호","솔라","예리","유정","팔로알토","하연수"],
-            "돼지상":["강소라","강호동","김준현","박나래","서현","소유","손나은","송가인","이하늬","정형돈"],\
-            "사슴상":["김채원","렌","루한","샤이니민호","성유리","송강","윤아","임시완","전지현","차은우","찬열","최강창민","태민"],\
-            "개구리상":["권정열","김민주","오마이걸비니","신민아","전소민","초아","하현우"]}
+            "거북이상":["샤이니민호","솔라","예리","유정","팔로알토"],
+            "돼지상":["강소라","강호동","김준현","박나래","서현","소유","손나은"],\
+            "사슴상":["김채원","렌","루한","샤이니민호","송강","윤아","차은우","태민"],\
+            "개구리상":["권정열","김민주","오마이걸비니","신민아","전소민","하현우"]}
 headers = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"}
 
 def webscrape_images1():
@@ -83,7 +83,7 @@ def webscrape_images1():
         os.chdir(owd)
     print("FIRST LOOP FINISHED!")
 
-def webscraped_images2(dog_cnt,cat_cnt,rabbit_cnt,horse_cnt,fox_cnt,squirrel_cnt,bear_cnt,wolf_cnt,monkey_cnt,turtle_cnt,pig_cnt,deer_cnt,frog_cnt):
+def webscrape_images2(dog_cnt,cat_cnt,rabbit_cnt,horse_cnt,fox_cnt,squirrel_cnt,bear_cnt,wolf_cnt,monkey_cnt,turtle_cnt,pig_cnt,deer_cnt,frog_cnt):
     for idx1,names in enumerate(an_face.values()):
         for name_ind,name in enumerate(names):
             print("2nd loop",name,"searching")
@@ -171,7 +171,9 @@ def webscraped_images2(dog_cnt,cat_cnt,rabbit_cnt,horse_cnt,fox_cnt,squirrel_cnt
                     frog_cnt += temp_cnt
                 cnt = frog_cnt
             temp_cnt = 0
-            for face_image in face_images:
+            print("length= ",len(face_images))
+            for face_ind,face_image in enumerate(face_images):
+                print(face_ind)
                 temp_cnt += 1
                 cnt += 1
                 face_image_url = face_image["href"]
@@ -183,4 +185,4 @@ def webscraped_images2(dog_cnt,cat_cnt,rabbit_cnt,horse_cnt,fox_cnt,squirrel_cnt
                     continue
             os.chdir(owd)
             
-webscrape_images1()
+# webscrape_images2(36,46,36,23,40,44,21,14,38,11,26,24,34)
