@@ -22,7 +22,7 @@ if os.path.isdir('images/dog') is False:
     os.makedirs('images/frog')
 an_face = {'강아지상':["박보검","강다니엘","백현","이종석","손예진","한효주","수지","아이유"],\
             '고양이상':["한예슬","현아","예지","조인성","하니","한소희","고아라","크리스탈"],\
-            '토끼상':["나연","려육","아이린","유나","이나은","정국","지수","한지민","도영","에스파윈터","태민"],\
+            '토끼상':["나연","려욱","아이린","유나","이나은","정국","지수","한지민","도영","에스파윈터","태민"],\
             '말상':["강타","김기수","보아","제이홉","태연","이광수","소지섭","이병헌"],\
             '여우상':["서인국","가인","경리","유인나","육성재","쯔위","채령","샤이니키"],\
             '다람쥐상':["김성경","사나","문별","조보아","강미나","로꼬","레이나"],\
@@ -81,7 +81,6 @@ def webscrape_images1():
             except image_res.raise_for_status():
                 continue
         os.chdir(owd)
-    print("FIRST LOOP FINISHED!")
 
 def webscrape_images2(dog_cnt,cat_cnt,rabbit_cnt,horse_cnt,fox_cnt,squirrel_cnt,bear_cnt,wolf_cnt,monkey_cnt,turtle_cnt,pig_cnt,deer_cnt,frog_cnt):
     for idx1,names in enumerate(an_face.values()):
